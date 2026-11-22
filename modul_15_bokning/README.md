@@ -62,3 +62,5 @@ felmeddelande om den slår till. Testa 9–11 mot 11–13 (ska gå) och 9–11 m
 - Begränsa antal bokningar per person och vecka
 - Mejlbekräftelse (skriv bara ut i terminalen, skicka ingenting på riktigt)
 - Byt SQLite mot en annan databas
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

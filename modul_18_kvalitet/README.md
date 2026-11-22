@@ -49,3 +49,5 @@ en adress som inte finns.
 - Registret innehåller personuppgifter men saknar rutin för gallring och rätten att bli raderad.
 
 </details>
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

@@ -39,3 +39,5 @@ Jämför de tre diffarna. Vad hade du själv glömt att fråga efter?
 
 - Använd bara påhittade kundnamn. Ett riktigt ärendesystem innehåller personuppgifter, och dem klistrar
   man inte in i ett AI-verktyg utan att ha kollat vad som gäller.
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

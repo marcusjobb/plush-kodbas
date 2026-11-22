@@ -6,3 +6,6 @@ __pycache__/
 instance/
 bedomningar.json
 modul_07_mappagent/rapport.md
+
+# Exempeldata som behövs av modul 17 (annars ignorerar många globala inställningar *.log)
+!modul_17_testning/data/app.log

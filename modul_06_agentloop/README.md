@@ -44,3 +44,5 @@ Välj 4 för att sätta tillbaka buggen och köra om.
 
 Agenten ändrar filer. Därför frågar den dig före varje skrivning i läge 1 och 2. Det är samma tanke som
 när riktiga verktyg ber dig godkänna steg: du bestämmer hur mycket frihet den får.
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

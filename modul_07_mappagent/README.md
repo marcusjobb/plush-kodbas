@@ -37,3 +37,5 @@ Vad blir snittet? Är det rätt?
 
 Vilka steg kändes onödiga att godkänna, och vilka var viktiga? Om du hade godkänt allt automatiskt,
 vad hade kunnat gå fel?
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

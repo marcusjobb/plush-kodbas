@@ -1,0 +1,13 @@
+2026-11-02 08:01:12 INFO inloggning: användare anna_p loggade in
+2026-11-02 08:03:44 INFO order: order 1001 skapad
+2026-11-02 08:03:45 WARNING betalning: långsamt svar från banken (2.3 s)
+2026-11-02 08:04:10 ERROR betalning: timeout mot banken, order 1001
+2026-11-02 08:04:11 INFO order: order 1001 väntar på betalning
+2026-11-02 08:15:02 INFO inloggning: användare bo_k loggade in
+2026-11-02 08:16:30 ERROR lager: saknar artikel 4711 vid plock
+2026-11-02 08:17:01 ERROR betalning: timeout mot banken, order 1002
+2026-11-02 08:20:55 WARNING inloggning: tre felaktiga lösenord för bo_k
+2026-11-02 08:21:09 INFO inloggning: användare bo_k loggade in
+2026-11-02 09:02:17 ERROR betalning: timeout mot banken, order 1003
+2026-11-02 09:30:00 INFO system: nattjobb klart
+rad som inte är en loggrad

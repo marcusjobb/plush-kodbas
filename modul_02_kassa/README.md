@@ -35,3 +35,5 @@ Det finns ingen `AGENTS.md`, ingen `.gitignore` och ingen Git-historik för mapp
 - Spara och läsa in ett kvitto från fil
 - Skriv ut kvittot i fast bredd, med kolumner som linjerar
 - Fler momssatser eller undantag (pant, gåvokort)
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

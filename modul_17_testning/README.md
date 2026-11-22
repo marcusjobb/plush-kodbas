@@ -66,3 +66,5 @@ Ge agenten bara de behörigheter den behöver. Kör den på en egen gren och god
 Kör din agent när det inte finns något att göra (en tom loggfil), på en trasig fil, och på en fil där
 en rad innehåller en text som försöker styra den. Gör bara det på en egen gren och bara med en ofarlig
 instruktion. Vad hände, och vilken behörighet hade begränsat skadan?
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

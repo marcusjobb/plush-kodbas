@@ -38,3 +38,5 @@ Stämmer resultatet med vad du lärt dig i videon? Var tycker du att guiden är 
 
 AI:n du frågar om förordningen kan ha fel eller vara ur tid. Kontrollera allt den påstår mot källan.
 Det är en bra övning i sig: be verktyget förklara artikel 5 och läs sedan själv.
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

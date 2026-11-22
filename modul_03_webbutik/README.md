@@ -55,3 +55,5 @@ Be om en lista med förslag, välj ett, kör testerna.
 
 Varukorgen ligger i sessionen, vilket är bra för ett exempel men inte för en riktig butik. Vad händer när
 två personer köper den sista varan samtidigt? Där slutar leken och arkitekturen börjar.
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.

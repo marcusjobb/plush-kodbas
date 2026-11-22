@@ -45,12 +45,18 @@ Numren följer sidorna på kursportalen (`/ovningar/NN`).
 
 | Mapp | Portalens övningssida | Vad du får |
 |------|----------------------|------------|
+| `modul_00_01_introduktion` | 00 och 01 Introduktion, mål och upplägg (bara video) | Samtalsstartare, ingen kod |
 | `modul_02_kassa` | 02 Konfiguration och verktyg | Kassa med meny i konsolen, utan `AGENTS.md` |
 | `modul_03_webbutik` | 03 Kodgenerering, felsökning, refaktorisering | Webbutik i Flask som bara använder POST. Gör den interaktiv med `fetch` |
 | `modul_04_05_prompt` | 04 och 05 Prompt och promptbaserad interaktion | Supportärenden i konsolen att ändra med olika promptar |
 | `modul_06_agentloop` | 06 Vad är en AI-agent? | En agentloop du kan se steg för steg, utan AI |
 | `modul_07_mappagent` | 07 Bygg din första agent | En agent som läser en mapp och har behörigheter |
+| `modul_08_cicd_teamarbete` | 08 AI i utvecklingsflödet, CI/CD (bara video) | Samtalsstartare, ingen kod |
+| `modul_09_utvecklarrollen` | 09 Hur AI förändrar utvecklarrollen (bara video) | Samtalsstartare, ingen kod |
+| `modul_10_etik_sakerhet` | 10 Etik och säkerhet (bara video) | Samtalsstartare, ingen kod |
 | `modul_11_riskguide` | 11 EU:s AI-förordning | Beslutsguide för risknivå som du kan utöka |
+| `modul_12_granska_ai_kod` | 12 Granska AI-genererad kod kritiskt (bara video) | Samtalsstartare, ingen kod |
+| `modul_13_jul` | 13 Jul (bonus, ingen video eller övning) | Julgran, hemlig tomte och jul-AI-promptar. Binder ihop granskning (12) och planering (14) |
 | `modul_14_projektplan` | 14 Från idé till plan | Mallar för projektplan och AI-logg |
 | `modul_15_bokning` | 15 Kom igång med bygget | Rumsbokning i Flask och SQLite att bygga vidare på |
 | `modul_16_felsokning` | 16 Felsökning och refaktorisering | Rörig fakturakod utan tester |
@@ -58,6 +64,18 @@ Numren följer sidorna på kursportalen (`/ovningar/NN`).
 | `modul_18_kvalitet` | 18 Kvalitetssäkring | Ett litet register med medvetna brister att granska |
 | `modul_19_redovisning` | 19 Förbered redovisningen | Checklista för demon |
 | `modul_20_avslut` | 20 Redovisning och avslut | Mall för reflektion |
+| `bonus_aventyrsspel` | Bonus, inte kopplad till en modul | Textäventyr i en slumpad labyrint. Inte färdigt, med en backlog att bygga på |
+
+Moduler som bara har en video, utan övningar, har **samtalsstartare** i stället för kod: frågor och
+promptar att ta med till ett AI-verktyg. Läs [hur du pratar med en AI](docs/prata_med_ai.md) först.
+
+## Verktygsguider
+
+Mappen [`docs/`](docs/README.md) förklarar vad Claude Cowork, Rowboat och n8n är, vad de används till
+och hur de installeras.
+
+Varje mapp med kod har också en `BACKLOG.md` med idéer att bygga vidare på. Det är förslag att inspireras
+av, inga krav, och en del beslut är öppna med flit.
 
 ## Regler för all kod här
 

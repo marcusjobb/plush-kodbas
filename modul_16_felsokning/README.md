@@ -44,3 +44,5 @@ python -m unittest        # kör testerna (det finns ett enda)
 Att refaktorisera *bort* ett fel utan att märka det är precis vad testerna i steg 1 ska hindra.
 
 </details>
+
+**Fler idéer:** se [BACKLOG.md](BACKLOG.md). Det är förslag att inspireras av, inga krav.
