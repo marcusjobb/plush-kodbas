@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Varukorg{% endblock %}
+{% block content %}
+<h1>Varukorg</h1>
+{% if rows %}
+<table>
+  <tr><th>Vara</th><th class="num">Antal</th><th class="num">Exkl. moms</th><th class="num">Moms</th><th class="num">Summa</th><th></th></tr>
+  {% for row in rows %}
+  <tr>
+    <td>{{ row.name }}</td>
+    <td class="num">{{ row.quantity }}</td>
+    <td class="num">{{ row.price_ex_vat }} kr</td>
+    <td class="num">{{ row.vat }} kr</td>
+    <td class="num">{{ row.total }} kr</td>
+    <td>
+      <form method="post" action="{{ url_for('remove_from_cart') }}">
+        <input type="hidden" name="product_id" value="{{ row.id }}">
+        <button type="submit">Ta bort</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  <tr><th colspan="2">Totalt</th><th class="num">{{ totals.ex_vat }} kr</th><th class="num">{{ totals.vat }} kr</th><th class="num">{{ totals.to_pay }} kr</th><th></th></tr>
+</table>
+<form method="post" action="{{ url_for('pay') }}">
+  <p><button type="submit">Betala {{ totals.to_pay }} kr</button></p>
+</form>
+{% else %}
+<p>Varukorgen är tom.</p>
+{% endif %}
+{% endblock %}

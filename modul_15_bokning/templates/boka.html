@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Boka rum</h1>
+<form method="post">
+  <label>Rum
+    <select name="room_id">
+      {% for room in rooms %}<option value="{{ room.id }}">{{ room.name }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Ditt namn (påhittat) <input name="booked_by" required></label>
+  <label>Dag <input type="date" name="day" required></label>
+  <label>Från klockan <input type="number" name="start_hour" min="7" max="20" required></label>
+  <label>Till klockan <input type="number" name="end_hour" min="8" max="21" required></label>
+  <button type="submit">Boka</button>
+</form>
+{% endblock %}

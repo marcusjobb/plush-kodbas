@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Webbutiken{% endblock %}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 52rem; margin: 0 auto; padding: 1rem; }
+    nav { display: flex; gap: 1rem; justify-content: space-between; border-bottom: 1px solid #ccc; margin-bottom: 1rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; padding: .4rem; border-bottom: 1px solid #ddd; }
+    td.num, th.num { text-align: right; }
+    button { cursor: pointer; padding: .3rem .8rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1rem; }
+    .card { border: 1px solid #ccc; border-radius: .5rem; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('index') }}"><strong>Butiken</strong></a>
+    <a href="{{ url_for('show_cart') }}">Varukorg ({{ cart_count }})</a>
+  </nav>
+  {% block content %}{% endblock %}
+</body>
+</html>

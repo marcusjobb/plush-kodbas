@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Produkter</h1>
+<div class="grid">
+  {% for product in products %}
+  <div class="card">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.price }} kr exkl. {{ product.vat }} % moms</p>
+    <form method="post" action="{{ url_for('add_to_cart') }}">
+      <input type="hidden" name="product_id" value="{{ product.id }}">
+      <button type="submit">Lägg i varukorgen</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

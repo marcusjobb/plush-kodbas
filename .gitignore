@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.db
+instance/
+bedomningar.json
+modul_07_mappagent/rapport.md

@@ -1,0 +1,28 @@
+{
+  "disclaimer": "Förenklad guide för träning. Inte juridisk rådgivning. Läs alltid själva förordningen.",
+  "steps": [
+    {
+      "level": "FÖRBJUDEN",
+      "basis": "Art. 5, förbjudna metoder",
+      "question": "Gör systemet något av detta: poängsätter människor efter socialt beteende, manipulerar dem dolt på ett skadligt sätt, utnyttjar någons sårbarhet, skrapar ansiktsbilder urskillningslöst, eller känner av känslor på arbetsplatser eller i skolor?"
+    },
+    {
+      "level": "HÖG RISK",
+      "basis": "Bilaga III, områden med hög risk",
+      "question": "Används systemet inom ett av dessa områden: rekrytering och personalhantering, utbildning och betygsättning, kreditprövning, biometrisk identifiering, kritisk infrastruktur, brottsbekämpning, migration eller rättsskipning?"
+    },
+    {
+      "level": "BEGRÄNSAD RISK",
+      "basis": "Art. 50, krav på öppenhet",
+      "question": "Pratar systemet direkt med människor (till exempel en chattbot), eller skapar det bilder, ljud eller text som kan förväxlas med äkta (syntetiskt innehåll)?"
+    }
+  ],
+  "default": {
+    "level": "MINIMAL RISK",
+    "basis": "Inga särskilda krav i förordningen utöver allmänna regler"
+  },
+  "roles": [
+    {"key": "1", "text": "Jag utvecklar systemet och släpper det under eget namn (leverantör)"},
+    {"key": "2", "text": "Jag använder någon annans system i min verksamhet (den som använder, deployer)"}
+  ]
+}

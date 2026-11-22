@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Rum</h1>
+<ul>
+  {% for room in rooms %}<li>{{ room.name }} ({{ room.seats }} platser)</li>{% endfor %}
+</ul>
+<h1>Bokningar</h1>
+{% if bookings %}
+<table>
+  <tr><th>Dag</th><th>Tid</th><th>Rum</th><th>Bokat av</th></tr>
+  {% for b in bookings %}
+  <tr><td>{{ b.day }}</td><td>{{ b.start_hour }}:00 till {{ b.end_hour }}:00</td><td>{{ b.room_name }}</td><td>{{ b.booked_by }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Inga bokningar än.</p>
+{% endif %}
+{% endblock %}

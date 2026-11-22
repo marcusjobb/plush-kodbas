@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rumsbokning</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 1rem; }
+    nav { display: flex; gap: 1rem; border-bottom: 1px solid #ccc; margin-bottom: 1rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; padding: .4rem; border-bottom: 1px solid #ddd; }
+    label { display: block; margin: .6rem 0; }
+  </style>
+</head>
+<body>
+  <nav><a href="{{ url_for('index') }}">Bokningar</a><a href="{{ url_for('book') }}">Boka rum</a></nav>
+  {% block content %}{% endblock %}
+</body>
+</html>
