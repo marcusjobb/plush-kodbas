@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Utövare{% endblock %}
+{% block content %}
+<h1>Utövare</h1>
+{% if athletes %}
+<ul>{% for a in athletes %}<li>{{ a.first_name }} {{ a.last_name }}</li>{% endfor %}</ul>
+{% else %}
+<p>Det finns inga utövare än.</p>
+{% endif %}
+<h2>Lägg till utövare</h2>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="first_name">Förnamn</label>
+  <input id="first_name" name="first_name" value="{{ form.first_name }}">
+  <label for="last_name">Efternamn</label>
+  <input id="last_name" name="last_name" value="{{ form.last_name }}">
+  <label for="birth_date">Födelsedatum</label>
+  <input id="birth_date" name="birth_date" type="date" value="{{ form.birth_date }}">
+  <label for="hair_color">Hårfärg</label>
+  <input id="hair_color" name="hair_color" value="{{ form.hair_color }}">
+  <label for="height_cm">Längd i cm</label>
+  <input id="height_cm" name="height_cm" value="{{ form.height_cm }}">
+  <label for="religion">Religion</label>
+  <input id="religion" name="religion" value="{{ form.religion }}">
+  <p><button type="submit">Spara</button></p>
+</form>
+{% endblock %}

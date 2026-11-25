@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Träningstyper{% endblock %}
+{% block content %}
+<h1>Träningstyper</h1>
+<table>
+  <thead><tr><th>Namn</th><th>Veckomål i minuter</th><th></th></tr></thead>
+  <tbody>
+  {% for t in training_types %}
+    <tr>
+      <td>{{ t.name }}</td>
+      <td>
+        <form method="post" action="{{ url_for('training_type_goal', type_id=t.id) }}">
+          <input name="minutes" value="{{ t.weekly_goal_minutes or '' }}" size="6" aria-label="Veckomål för {{ t.name }}">
+          <button type="submit">Spara</button>
+        </form>
+      </td>
+      <td><a href="{{ url_for('training_type_delete', type_id=t.id) }}">Ta bort</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<h2>Lägg till träningstyp</h2>
+<form method="post">
+  <input name="name" placeholder="Till exempel Padel" aria-label="Namn">
+  <button type="submit">Lägg till</button>
+</form>
+{% endblock %}

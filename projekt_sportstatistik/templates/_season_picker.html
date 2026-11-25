@@ -1,0 +1,10 @@
+{% macro season_picker(endpoint, season) %}
+<p>
+  <a href="{{ url_for(endpoint, year=season - 1) }}">&laquo; Föregående</a>
+  <form method="get" action="{{ url_for(endpoint) }}" style="display:inline">
+    <input name="year" value="{{ season }}" size="5" aria-label="Säsong (år)">
+    <button type="submit">Visa</button>
+  </form>
+  <a href="{{ url_for(endpoint, year=season + 1) }}">Nästa &raquo;</a>
+</p>
+{% endmacro %}

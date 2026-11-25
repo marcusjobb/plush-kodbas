@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Veckoöversikt{% endblock %}
+{% block content %}
+<h1>Veckoöversikt, vecka {{ nav.week }} {{ nav.year }}</h1>
+<p>{{ overview.start.isoformat() }} (måndag) till {{ overview.end.isoformat() }} (söndag)</p>
+<p>
+  <a href="{{ url_for('overview_page', year=nav.previous[0], week=nav.previous[1]) }}">&laquo; Föregående</a>
+  <form method="get" action="{{ url_for('overview_page') }}" style="display:inline">
+    <input name="year" value="{{ nav.year }}" size="5" aria-label="År">
+    <input name="week" value="{{ nav.week }}" size="3" aria-label="Vecka">
+    <button type="submit">Visa</button>
+  </form>
+  <a href="{{ url_for('overview_page', year=nav.next[0], week=nav.next[1]) }}">Nästa &raquo;</a>
+</p>
+<table>
+  <tr><th>Antal pass</th><td class="right">{{ overview.workout_count }}</td></tr>
+  <tr><th>Total träningstid</th><td class="right">{{ overview.total_minutes|duration }}</td></tr>
+</table>
+<h2>Träningstid per träningstyp</h2>
+{% if overview.minutes_per_type %}
+<table>
+  <thead><tr><th>Träningstyp</th><th class="right">Träningstid</th><th class="right">Veckomål</th></tr></thead>
+  <tbody>
+  {% for row in overview.minutes_per_type %}
+    <tr>
+      <td>{{ row.training_type_name }}</td>
+      <td class="right">{{ row.minutes|duration }}</td>
+      <td class="right">{% if row.goal_minutes %}{{ row.goal_minutes|duration }}{% else %}-{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Inga pass den här veckan.</p>
+{% endif %}
+{% endblock %}

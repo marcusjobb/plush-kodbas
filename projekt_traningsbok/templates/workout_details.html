@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ workout.training_type }}{% endblock %}
+{% block content %}
+<h1>{{ workout.training_type }}</h1>
+<p>{{ workout.date.isoformat() }}, {{ workout.duration_minutes|duration }}
+{% if athlete_name(workout.athlete_id) %}, {{ athlete_name(workout.athlete_id) }}{% endif %}</p>
+{% if workout.note %}<p>Anteckning: {{ workout.note }}</p>{% endif %}
+<h2>Övningar</h2>
+{% if workout.exercises %}
+<ul>
+  {% for e in workout.exercises %}
+    <li>{{ e.name }}: {{ e.sets }} set × {{ e.reps }} reps, {{ e.weight|weight }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Passet har inga övningar än.</p>
+{% endif %}
+<h2>Lägg till övning</h2>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="name">Övning</label>
+  <input id="name" name="name" value="{{ form.name }}" placeholder="Knäböj">
+  <label for="sets">Set</label>
+  <input id="sets" name="sets" value="{{ form.sets }}" placeholder="3" size="5">
+  <label for="reps">Reps</label>
+  <input id="reps" name="reps" value="{{ form.reps }}" placeholder="8" size="5">
+  <label for="weight">Vikt i kg</label>
+  <input id="weight" name="weight" value="{{ form.weight }}" placeholder="62,5" size="8">
+  <p><button type="submit">Lägg till</button></p>
+</form>
+<p><a href="{{ url_for('workout_list') }}">Tillbaka till passen</a></p>
+{% endblock %}

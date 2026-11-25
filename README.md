@@ -65,6 +65,13 @@ Numren följer sidorna på kursportalen (`/ovningar/NN`).
 | `modul_19_redovisning` | 19 Förbered redovisningen | Checklista för demon |
 | `modul_20_avslut` | 20 Redovisning och avslut | Mall för reflektion |
 | `bonus_aventyrsspel` | Bonus, inte kopplad till en modul | Textäventyr i en slumpad labyrint. Inte färdigt, med en backlog att bygga på |
+| `projekt_hushallsbudget` | Större projekt, inte kopplat till en modul | Flask-skal med data i minnet: inkomster, utgifter och budget. Bygg databas, granska datan och styla |
+| `projekt_traningsbok` | Större projekt, inte kopplat till en modul | Flask-skal: träningspass, veckomål och statistik per övning |
+| `projekt_sportstatistik` | Större projekt, inte kopplat till en modul | Flask-skal: lag, spelare, matcher och tabell |
+| `projekt_recept` | Större projekt, inte kopplat till en modul | Flask-skal: recept, veckoplan och inköpslista |
+
+De fyra `projekt_`-mapparna är halvfärdiga program, som de du möter när du börjar på ett företag. Sidorna
+fungerar, men all data ligger i minnet. Läs koden, välj ett kort i mappens `BACKLOG.md` och bygg vidare.
 
 Moduler som bara har en video, utan övningar, har **samtalsstartare** i stället för kod: frågor och
 promptar att ta med till ett AI-verktyg. Läs [hur du pratar med en AI](docs/prata_med_ai.md) först.

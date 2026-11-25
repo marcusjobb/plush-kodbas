@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Kategorier{% endblock %}
+{% block content %}
+<h1>Kategorier</h1>
+<table>
+  <thead><tr><th>Namn</th><th>Gräns per vecka</th><th></th></tr></thead>
+  <tbody>
+  {% for c in categories %}
+    <tr>
+      <td>{{ c.name }}</td>
+      <td>
+        <form method="post" action="{{ url_for('category_limit', category_id=c.id) }}">
+          <input name="limit" value="{{ c.weekly_limit or '' }}" size="3" aria-label="Gräns för {{ c.name }}">
+          <button type="submit">Spara</button>
+        </form>
+      </td>
+      <td><a href="{{ url_for('category_delete', category_id=c.id) }}">Ta bort</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<h2>Lägg till kategori</h2>
+<form method="post">
+  <input name="name" placeholder="Till exempel Grill" aria-label="Namn">
+  <button type="submit">Lägg till</button>
+</form>
+{% endblock %}

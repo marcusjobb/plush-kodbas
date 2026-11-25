@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Välkommen till Hushållsbudget</h1>
+<p>Registrera hushållets inkomster och utgifter, se hur pengarna fördelar sig per månad
+och få en varning när en kategori går över sin budget.</p>
+<ul>
+  <li><a href="{{ url_for('transactions') }}">Transaktioner</a>: lägg till, visa och ta bort inkomster och utgifter</li>
+  <li><a href="{{ url_for('overview_page') }}">Månadsöversikt</a>: inkomster, utgifter, saldo och summa per kategori</li>
+  <li><a href="{{ url_for('budget') }}">Budget</a>: månadsbudget per kategori, med varning vid 80 % och 100 %</li>
+  <li><a href="{{ url_for('categories_page') }}">Kategorier</a>: standardkategorierna och hushållets egna</li>
+  <li><a href="{{ url_for('household_page') }}">Hushållet</a>: namn och medlemmar</li>
+</ul>
+<p><em>Data ligger i minnet och försvinner när appen stängs.</em></p>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Hushållsbudget{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('index') }}">Hushållsbudget</a>
+  <a href="{{ url_for('transactions') }}">Transaktioner</a>
+  <a href="{{ url_for('overview_page') }}">Månadsöversikt</a>
+  <a href="{{ url_for('budget') }}">Budget</a>
+  <a href="{{ url_for('categories_page') }}">Kategorier</a>
+  <a href="{{ url_for('household_page') }}">Hushållet</a>
+</nav>
+<main>
+  {% for category, message in get_flashed_messages(with_categories=true) %}
+    <p class="{{ category }}">{{ message }}</p>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

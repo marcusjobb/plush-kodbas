@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "_month_picker.html" import month_picker %}
+{% block title %}Transaktioner{% endblock %}
+{% block content %}
+<h1>Transaktioner, {{ month_name(nav.month) }} {{ nav.year }}</h1>
+<p><a href="{{ url_for('transaction_create') }}">Lägg till transaktion</a></p>
+{{ month_picker(endpoint, nav) }}
+{% if transactions %}
+<table>
+  <thead><tr><th>Datum</th><th>Typ</th><th>Kategori</th><th>Anteckning</th><th class="right">Belopp</th><th></th></tr></thead>
+  <tbody>
+  {% for t in transactions %}
+    <tr>
+      <td>{{ t.date.isoformat() }}</td>
+      <td>{{ "Utgift" if t.is_expense else "Inkomst" }}</td>
+      <td>{{ t.category }}</td>
+      <td>{{ t.note }}</td>
+      <td class="right">{{ t.amount|abs|money }}</td>
+      <td><a href="{{ url_for('transaction_delete', transaction_id=t.id) }}">Ta bort</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Det finns inga transaktioner den månaden.</p>
+{% endif %}
+{% endblock %}

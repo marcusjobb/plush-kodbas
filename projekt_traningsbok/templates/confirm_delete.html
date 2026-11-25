@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Ta bort{% endblock %}
+{% block content %}
+<h1>Ta bort {{ what }}?</h1>
+<p>{{ detail }}</p>
+{% if note %}<p>{{ note }}</p>{% endif %}
+<form method="post">
+  <button type="submit">Ja, ta bort</button>
+  <a href="{{ cancel_url }}">Nej</a>
+</form>
+{% endblock %}

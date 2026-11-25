@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Matcher{% endblock %}
+{% block content %}
+<h1>Matcher</h1>
+<p><a href="{{ url_for('match_create') }}">Registrera match</a></p>
+{% if matches %}
+<table>
+  <thead><tr><th>Datum</th><th>Hemmalag</th><th>Bortalag</th><th>Resultat</th><th>Anteckning</th><th></th></tr></thead>
+  <tbody>
+  {% for m in matches %}
+    <tr>
+      <td>{{ m.date.isoformat() }}</td>
+      <td>{{ names.get(m.home_team_id, "(okänt lag)") }}</td>
+      <td>{{ names.get(m.away_team_id, "(okänt lag)") }}</td>
+      <td>{{ m.home_goals|result(m.away_goals) }}</td>
+      <td>{{ m.note }}</td>
+      <td><a href="{{ url_for('match_delete', match_id=m.id) }}">Ta bort</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Det finns inga matcher än.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Registrera match{% endblock %}
+{% block content %}
+<h1>Registrera match</h1>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="home_team_id">Hemmalag</label>
+  <select id="home_team_id" name="home_team_id">
+    <option value="">Välj lag</option>
+    {% for t in teams %}
+      <option value="{{ t.id }}" {% if form.home_team_id == t.id|string %}selected{% endif %}>{{ t.name }}</option>
+    {% endfor %}
+  </select>
+  <label for="away_team_id">Bortalag</label>
+  <select id="away_team_id" name="away_team_id">
+    <option value="">Välj lag</option>
+    {% for t in teams %}
+      <option value="{{ t.id }}" {% if form.away_team_id == t.id|string %}selected{% endif %}>{{ t.name }}</option>
+    {% endfor %}
+  </select>
+  <label for="home_goals">Mål hemma</label>
+  <input id="home_goals" name="home_goals" inputmode="numeric" value="{{ form.home_goals }}" placeholder="2">
+  <label for="away_goals">Mål borta</label>
+  <input id="away_goals" name="away_goals" inputmode="numeric" value="{{ form.away_goals }}" placeholder="1">
+  <label for="date">Datum</label>
+  <input id="date" name="date" type="date" value="{{ form.date }}">
+  <label for="note">Anteckning (valfri)</label>
+  <input id="note" name="note" value="{{ form.note }}">
+  <p><button type="submit">Spara</button> <a href="{{ url_for('matches_page') }}">Avbryt</a></p>
+</form>
+{% endblock %}

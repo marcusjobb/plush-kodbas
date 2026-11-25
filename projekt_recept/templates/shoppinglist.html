@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% from "_week_picker.html" import week_picker %}
+{% block title %}Inköpslista{% endblock %}
+{% block content %}
+<h1>Inköpslista, vecka {{ nav.week }}</h1>
+{{ week_picker(endpoint, nav) }}
+{% if items %}
+<ul>{% for item in items %}<li>{{ item|amount }} {{ item.name }}</li>{% endfor %}</ul>
+{% else %}
+<p>Inköpslistan är tom.</p>
+{% endif %}
+{% endblock %}

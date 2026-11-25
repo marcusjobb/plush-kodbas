@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Välkommen till Sportstatistik</h1>
+<p>Registrera lag, spelare och matcher i korpserien, och se seriens tabell för en säsong.
+Programmet varnar när ett lag närmar sig sin truppgräns.</p>
+<ul>
+  <li><a href="{{ url_for('teams_page') }}">Lag och spelare</a>: lägg till lag, och spelare i ett lag</li>
+  <li><a href="{{ url_for('matches_page') }}">Matcher</a>: registrera, visa och ta bort matcher</li>
+  <li><a href="{{ url_for('standings_page') }}">Tabell</a>: seriens tabell för en säsong</li>
+  <li><a href="{{ url_for('squad_limits') }}">Truppgränser</a>: största antal spelare per lag, med varning vid 80 % och 100 %</li>
+  <li><a href="{{ url_for('positions_page') }}">Positioner</a>: standardpositionerna och egna</li>
+</ul>
+<p><em>Data ligger i minnet och försvinner när appen stängs.</em></p>
+{% endblock %}

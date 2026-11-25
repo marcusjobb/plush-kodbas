@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Recept{% endblock %}
+{% block content %}
+<h1>Recept</h1>
+<p><a href="{{ url_for('recipe_create') }}">Lägg till recept</a></p>
+<form method="get">
+  <input name="q" value="{{ query }}" placeholder="Sök på ingrediens" aria-label="Sök på ingrediens">
+  <button type="submit">Sök</button>
+  {% if query %}<a href="{{ url_for('recipe_list') }}">Visa alla</a>{% endif %}
+</form>
+{% if recipes %}
+<table>
+  <thead><tr><th>Namn</th><th>Kategori</th><th>Kock</th><th>Portioner</th><th></th></tr></thead>
+  <tbody>
+  {% for r in recipes %}
+    <tr>
+      <td>{{ r.name }}</td>
+      <td>{{ r.category }}</td>
+      <td>{{ chef_names.get(r.chef_id, "") }}</td>
+      <td>{{ r.servings }}</td>
+      <td>
+        <a href="{{ url_for('recipe_details', recipe_id=r.id) }}">Visa</a>
+        <a href="{{ url_for('recipe_delete', recipe_id=r.id) }}">Ta bort</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>{{ "Inga recept hittades." if query else "Det finns inga recept än." }}</p>
+{% endif %}
+{% endblock %}

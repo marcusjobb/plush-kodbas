@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ team.name }}{% endblock %}
+{% block content %}
+<h1>{{ team.name }}</h1>
+<p>{{ players|length }} spelare</p>
+{% if players %}
+<table>
+  <thead><tr><th>Namn</th><th>Position</th></tr></thead>
+  <tbody>
+  {% for p in players %}
+    <tr><td>{{ p.first_name }} {{ p.last_name }}</td><td>{{ p.position }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Laget har inga spelare än.</p>
+{% endif %}
+<h2>Lägg till spelare</h2>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="position">Position</label>
+  <select id="position" name="position">
+    {% for p in positions %}
+      <option value="{{ p.name }}" {% if form.position == p.name %}selected{% endif %}>{{ p.name }}</option>
+    {% endfor %}
+  </select>
+  <label for="first_name">Förnamn</label>
+  <input id="first_name" name="first_name" value="{{ form.first_name }}">
+  <label for="last_name">Efternamn</label>
+  <input id="last_name" name="last_name" value="{{ form.last_name }}">
+  <label for="birth_date">Födelsedatum</label>
+  <input id="birth_date" name="birth_date" type="date" value="{{ form.birth_date }}">
+  <label for="hair_color">Hårfärg</label>
+  <input id="hair_color" name="hair_color" value="{{ form.hair_color }}">
+  <label for="height_cm">Längd i cm</label>
+  <input id="height_cm" name="height_cm" value="{{ form.height_cm }}">
+  <label for="religion">Religion</label>
+  <input id="religion" name="religion" value="{{ form.religion }}">
+  <p><button type="submit">Spara</button> <a href="{{ url_for('teams_page') }}">Tillbaka till lagen</a></p>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Lägg till pass{% endblock %}
+{% block content %}
+<h1>Lägg till pass</h1>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="date">Datum</label>
+  <input id="date" name="date" type="date" value="{{ form.date }}">
+  <label for="training_type">Träningstyp</label>
+  <select id="training_type" name="training_type">
+    <option value="">Välj träningstyp</option>
+    {% for t in training_types %}
+      <option value="{{ t.name }}" {% if form.training_type == t.name %}selected{% endif %}>{{ t.name }}</option>
+    {% endfor %}
+  </select>
+  <label for="duration">Längd i minuter</label>
+  <input id="duration" name="duration" value="{{ form.duration }}" placeholder="65">
+  <label for="athlete_id">Utövare</label>
+  <select id="athlete_id" name="athlete_id">
+    <option value="">Ingen vald</option>
+    {% for a in athletes %}
+      <option value="{{ a.id }}" {% if form.athlete_id == a.id|string %}selected{% endif %}>{{ a.first_name }}</option>
+    {% endfor %}
+  </select>
+  <label for="note">Anteckning (valfri)</label>
+  <input id="note" name="note" value="{{ form.note }}" placeholder="Ben">
+  <p><button type="submit">Spara</button> <a href="{{ url_for('workout_list') }}">Avbryt</a></p>
+</form>
+{% endblock %}

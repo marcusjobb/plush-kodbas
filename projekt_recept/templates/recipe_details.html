@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ recipe.name }}{% endblock %}
+{% block content %}
+<h1>{{ recipe.name }}</h1>
+<p>
+  {{ shown }} portioner{% if shown != recipe.servings %} (receptet är skrivet för {{ recipe.servings }}){% endif %}<br>
+  Kategori: {{ recipe.category }}{% if chef %}<br>Kock: {{ chef.first_name }}{% endif %}
+</p>
+<ul>
+  {% for ingredient in ingredients %}<li>{{ ingredient|amount }} {{ ingredient.name }}</li>{% endfor %}
+</ul>
+{% if recipe.note %}<p>{{ recipe.note }}</p>{% endif %}
+<form method="get">
+  <label for="servings">Visa för antal portioner</label>
+  <input id="servings" name="servings" value="{{ shown }}" size="4">
+  <button type="submit">Räkna om</button>
+</form>
+<p><a href="{{ url_for('recipe_list') }}">Tillbaka till recepten</a></p>
+{% endblock %}

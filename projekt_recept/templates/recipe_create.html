@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Lägg till recept{% endblock %}
+{% block content %}
+<h1>Lägg till recept</h1>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="name">Namn</label>
+  <input id="name" name="name" value="{{ form.name }}">
+  <label for="servings">Antal portioner</label>
+  <input id="servings" name="servings" value="{{ form.servings }}" size="4">
+  <label for="category">Kategori</label>
+  <select id="category" name="category">
+    {% for c in categories %}
+      <option value="{{ c.name }}" {% if form.category == c.name %}selected{% endif %}>{{ c.name }}</option>
+    {% endfor %}
+  </select>
+  <label for="chef_id">Kock</label>
+  <select id="chef_id" name="chef_id">
+    <option value="">Ingen</option>
+    {% for chef in chefs %}
+      <option value="{{ chef.id }}" {% if form.chef_id == chef.id|string %}selected{% endif %}>{{ chef.first_name }}</option>
+    {% endfor %}
+  </select>
+  <label for="note">Anteckning (valfri)</label>
+  <input id="note" name="note" value="{{ form.note }}">
+  <h2>Ingredienser</h2>
+  <table>
+    <thead><tr><th>Ingrediens</th><th>Mängd</th><th>Enhet</th></tr></thead>
+    <tbody>
+    {% for row in form.rows %}
+      <tr>
+        <td><input name="ing_name" value="{{ row.name }}" placeholder="vetemjöl" aria-label="Ingrediens {{ loop.index }}"></td>
+        <td><input name="ing_amount" value="{{ row.amount }}" placeholder="2,5" size="6" aria-label="Mängd {{ loop.index }}"></td>
+        <td><input name="ing_unit" value="{{ row.unit }}" placeholder="dl" size="6" aria-label="Enhet {{ loop.index }}"></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p><button type="submit">Spara</button> <a href="{{ url_for('recipe_list') }}">Avbryt</a></p>
+</form>
+{% endblock %}

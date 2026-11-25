@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "_season_picker.html" import season_picker %}
+{% block title %}Truppgränser{% endblock %}
+{% block content %}
+<h1>Truppgränser, säsong {{ season }}</h1>
+{{ season_picker(endpoint, season) }}
+<table>
+  <thead><tr><th>Lag</th><th class="right">Spelare</th><th>Truppgräns</th><th>Ny gräns</th></tr></thead>
+  <tbody>
+  {% for t in teams %}
+    <tr>
+      <td>{{ t.name }}</td>
+      <td class="right">{{ counts[t.id] }}</td>
+      <td>{% if t.id in limits %}Högst {{ limits[t.id] }}{% else %}Ingen gräns{% endif %}</td>
+      <td>
+        <form method="post" action="{{ url_for('squad_limits', year=season) }}">
+          <input type="hidden" name="team_id" value="{{ t.id }}">
+          <input name="max_players" inputmode="numeric" size="5" aria-label="Ny gräns för {{ t.name }}">
+          <button type="submit">Spara</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p>När ett lag når 80 % av truppgränsen får användaren en varning, och vid 100 % en annan.</p>
+{% endblock %}

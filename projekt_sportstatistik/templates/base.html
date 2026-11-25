@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Sportstatistik{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('index') }}">Sportstatistik</a>
+  <a href="{{ url_for('teams_page') }}">Lag</a>
+  <a href="{{ url_for('matches_page') }}">Matcher</a>
+  <a href="{{ url_for('standings_page') }}">Tabell</a>
+  <a href="{{ url_for('squad_limits') }}">Truppgränser</a>
+  <a href="{{ url_for('positions_page') }}">Positioner</a>
+</nav>
+<main>
+  {% for category, message in get_flashed_messages(with_categories=true) %}
+    <p class="{{ category }}">{{ message }}</p>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

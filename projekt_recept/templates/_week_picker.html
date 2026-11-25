@@ -1,0 +1,11 @@
+{% macro week_picker(endpoint, nav) %}
+<p>
+  <a href="{{ url_for(endpoint, year=nav.previous[0], week=nav.previous[1]) }}">&laquo; Föregående</a>
+  <form method="get" action="{{ url_for(endpoint) }}" style="display:inline">
+    <input name="year" value="{{ nav.year }}" size="5" aria-label="År">
+    <input name="week" value="{{ nav.week }}" size="3" aria-label="Vecka">
+    <button type="submit">Visa</button>
+  </form>
+  <a href="{{ url_for(endpoint, year=nav.next[0], week=nav.next[1]) }}">Nästa &raquo;</a>
+</p>
+{% endmacro %}

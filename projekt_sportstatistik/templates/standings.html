@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "_season_picker.html" import season_picker %}
+{% block title %}Tabell{% endblock %}
+{% block content %}
+<h1>Tabell, säsong {{ season }}</h1>
+{{ season_picker(endpoint, season) }}
+{% if rows %}
+<table>
+  <thead>
+    <tr>
+      <th>#</th><th>Lag</th>
+      <th class="right" title="Spelade matcher">S</th><th class="right" title="Vinster">V</th>
+      <th class="right" title="Oavgjorda">O</th><th class="right" title="Förluster">F</th>
+      <th class="right" title="Gjorda mål">GM</th><th class="right" title="Insläppta mål">IM</th>
+      <th class="right" title="Målskillnad">MS</th><th class="right" title="Poäng">P</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td>{{ loop.index }}</td><td>{{ r.team_name }}</td>
+      <td class="right">{{ r.played }}</td><td class="right">{{ r.won }}</td>
+      <td class="right">{{ r.drawn }}</td><td class="right">{{ r.lost }}</td>
+      <td class="right">{{ r.goals_for }}</td><td class="right">{{ r.goals_against }}</td>
+      <td class="right">{{ r.goal_difference|goal_difference }}</td><td class="right"><strong>{{ r.points }}</strong></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p>S = spelade, V = vinster, O = oavgjorda, F = förluster, GM = gjorda mål, IM = insläppta mål,
+MS = målskillnad, P = poäng. Vinst ger 3 poäng, oavgjort 1 och förlust 0.</p>
+{% else %}
+<p>Inga matcher är spelade den här säsongen.</p>
+{% endif %}
+{% endblock %}

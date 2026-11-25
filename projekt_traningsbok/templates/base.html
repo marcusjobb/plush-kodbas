@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Träningsbok{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('index') }}">Träningsbok</a>
+  <a href="{{ url_for('workout_list') }}">Pass</a>
+  <a href="{{ url_for('overview_page') }}">Veckoöversikt</a>
+  <a href="{{ url_for('exercise_stats') }}">Övningsstatistik</a>
+  <a href="{{ url_for('training_types_page') }}">Träningstyper</a>
+  <a href="{{ url_for('athletes_page') }}">Utövare</a>
+</nav>
+<main>
+  {% for category, message in get_flashed_messages(with_categories=true) %}
+    <p class="{{ category }}">{{ message }}</p>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Pass{% endblock %}
+{% block content %}
+<h1>Pass</h1>
+<p><a href="{{ url_for('workout_create') }}">Lägg till pass</a></p>
+{% if workouts %}
+<table>
+  <thead><tr><th>Datum</th><th>Träningstyp</th><th>Utövare</th><th class="right">Längd</th><th>Övningar</th><th></th></tr></thead>
+  <tbody>
+  {% for w in workouts %}
+    <tr>
+      <td>{{ w.date.isoformat() }}</td>
+      <td>{{ w.training_type }}</td>
+      <td>{{ athlete_name(w.athlete_id) }}</td>
+      <td class="right">{{ w.duration_minutes|duration }}</td>
+      <td>{{ w.exercises|length }}</td>
+      <td>
+        <a href="{{ url_for('workout_details', workout_id=w.id) }}">Visa</a>
+        <a href="{{ url_for('workout_delete', workout_id=w.id) }}">Ta bort</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Det finns inga pass än.</p>
+{% endif %}
+{% endblock %}

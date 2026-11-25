@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Lag{% endblock %}
+{% block content %}
+<h1>Lag</h1>
+{% if teams %}
+<table>
+  <thead><tr><th>Namn</th><th class="right">Spelare</th><th></th></tr></thead>
+  <tbody>
+  {% for t in teams %}
+    <tr>
+      <td>{{ t.name }}</td>
+      <td class="right">{{ counts[t.id] }}</td>
+      <td><a href="{{ url_for('team_details', team_id=t.id) }}">Visa spelare</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Det finns inga lag än.</p>
+{% endif %}
+<h2>Lägg till lag</h2>
+<form method="post">
+  <input name="name" placeholder="Till exempel Ummis IF" aria-label="Namn">
+  <button type="submit">Lägg till</button>
+</form>
+{% endblock %}

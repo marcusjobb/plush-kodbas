@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Välkommen till Recept</h1>
+<p>Spara recept med ingredienser, planera veckans måltider och få en inköpslista.
+Programmet varnar när en kategori används för ofta under en vecka.</p>
+<ul>
+  <li><a href="{{ url_for('recipe_list') }}">Recept</a>: lägg till, visa, sök och ta bort recept</li>
+  <li><a href="{{ url_for('chefs_page') }}">Kockar</a>: de som har skapat recepten</li>
+  <li><a href="{{ url_for('categories_page') }}">Kategorier</a>: egna kategorier och gräns per vecka</li>
+  <li><a href="{{ url_for('mealplan_page') }}">Veckoplan</a>: planera veckan</li>
+  <li><a href="{{ url_for('shoppinglist_page') }}">Inköpslista</a>: det du behöver handla för veckan</li>
+</ul>
+<p><em>Data ligger i minnet och försvinner när appen stängs.</em></p>
+{% endblock %}

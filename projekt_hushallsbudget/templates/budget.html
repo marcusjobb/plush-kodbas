@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% from "_month_picker.html" import month_picker %}
+{% block title %}Budget{% endblock %}
+{% block content %}
+<h1>Budget, {{ month_name(nav.month) }} {{ nav.year }}</h1>
+{{ month_picker(endpoint, nav) }}
+{% if statuses %}
+<table>
+  <thead><tr><th>Kategori</th><th class="right">Använt</th><th class="right">Budget</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for s in statuses %}
+    <tr>
+      <td>{{ s.category_name }}</td>
+      <td class="right">{{ s.spent|money }}</td>
+      <td class="right">{{ s.budget_amount|money }}</td>
+      <td>
+        <progress max="100" value="{{ [s.percent, 100]|min }}"></progress> {{ s.percent }} %
+        {% if s.level.value == "exceeded" %}<span class="error">{{ s.category_name }} är över budgeten</span>
+        {% elif s.level.value == "warning" %}<span class="warning">{{ s.category_name }} är på {{ s.percent }} % av budgeten</span>{% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Ingen kategori har en budget den månaden.</p>
+{% endif %}
+<h2>Sätt budget för {{ month_name(nav.month) }}</h2>
+<form method="post" action="{{ url_for('budget', year=nav.year, month=nav.month) }}">
+  <label for="category_id">Kategori</label>
+  <select id="category_id" name="category_id">
+    {% for c in categories %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}
+  </select>
+  <label for="amount">Budget i kronor</label>
+  <input id="amount" name="amount" placeholder="1000">
+  <p><button type="submit">Spara</button></p>
+</form>
+{% endblock %}

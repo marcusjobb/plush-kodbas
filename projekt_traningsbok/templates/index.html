@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Välkommen till Träningsboken</h1>
+<p>Registrera träningspass och övningar, se hur träningen fördelar sig per vecka och få ett meddelande
+när ett veckomål närmar sig eller är nått.</p>
+<ul>
+  <li><a href="{{ url_for('workout_list') }}">Pass</a>: lägg till, visa och ta bort pass, och lägg till övningar</li>
+  <li><a href="{{ url_for('overview_page') }}">Veckoöversikt</a>: antal pass, träningstid och träningstid per typ</li>
+  <li><a href="{{ url_for('exercise_stats') }}">Övningsstatistik</a>: högsta vikt och totalt antal set</li>
+  <li><a href="{{ url_for('training_types_page') }}">Träningstyper</a>: standardtyperna, egna typer och veckomål</li>
+  <li><a href="{{ url_for('athletes_page') }}">Utövare</a>: vem som tränar</li>
+</ul>
+<p><em>Data ligger i minnet och försvinner när appen stängs.</em></p>
+{% endblock %}

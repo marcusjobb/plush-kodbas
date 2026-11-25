@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Övningsstatistik{% endblock %}
+{% block content %}
+<h1>Statistik för en övning</h1>
+<p>Högsta vikt och totalt antal set, i alla pass.</p>
+<form method="get">
+  <input name="name" value="{{ name }}" list="exercise-names" placeholder="Till exempel Knäböj" aria-label="Övning">
+  <datalist id="exercise-names">
+    {% for n in names %}<option value="{{ n }}"></option>{% endfor %}
+  </datalist>
+  <button type="submit">Visa statistik</button>
+</form>
+{% if stats %}
+<h2>{{ stats.exercise_name }}</h2>
+<table>
+  <tr><th>Högsta vikt</th><td>{{ stats.max_weight|weight }}</td></tr>
+  <tr><th>Totalt antal set</th><td>{{ stats.total_sets }}</td></tr>
+</table>
+{% endif %}
+{% endblock %}

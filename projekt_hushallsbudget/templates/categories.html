@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Kategorier{% endblock %}
+{% block content %}
+<h1>Kategorier</h1>
+<table>
+  <thead><tr><th>Namn</th><th></th></tr></thead>
+  <tbody>
+  {% for c in categories %}
+    <tr><td>{{ c.name }}</td><td><a href="{{ url_for('category_delete', category_id=c.id) }}">Ta bort</a></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<h2>Lägg till kategori</h2>
+<form method="post">
+  <input name="name" placeholder="Till exempel Bil" aria-label="Namn">
+  <button type="submit">Lägg till</button>
+</form>
+{% endblock %}

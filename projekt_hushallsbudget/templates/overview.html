@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_month_picker.html" import month_picker %}
+{% block title %}Månadsöversikt{% endblock %}
+{% block content %}
+<h1>Månadsöversikt, {{ month_name(nav.month) }} {{ nav.year }}</h1>
+{{ month_picker(endpoint, nav) }}
+<table>
+  <tr><th>Inkomster</th><td class="right">{{ overview.total_income|money }}</td></tr>
+  <tr><th>Utgifter</th><td class="right">{{ overview.total_expenses|money }}</td></tr>
+  <tr><th>Saldo</th><td class="right">{{ overview.balance|money }}</td></tr>
+</table>
+<h2>Utgifter per kategori</h2>
+{% if overview.category_totals %}
+<table>
+  {% for total in overview.category_totals %}
+    <tr><td>{{ total.category_name }}</td><td class="right">{{ total.amount|money }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Inga utgifter den månaden.</p>
+{% endif %}
+{% endblock %}

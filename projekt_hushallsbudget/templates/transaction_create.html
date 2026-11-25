@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Lägg till transaktion{% endblock %}
+{% block content %}
+<h1>Lägg till transaktion</h1>
+{% if errors %}<ul class="error">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">
+  <label for="type">Typ</label>
+  <select id="type" name="type">
+    <option value="expense" {% if form.type == "expense" %}selected{% endif %}>Utgift</option>
+    <option value="income" {% if form.type == "income" %}selected{% endif %}>Inkomst</option>
+  </select>
+  <label for="amount">Belopp i kronor</label>
+  <input id="amount" name="amount" value="{{ form.amount }}" placeholder="249,50">
+  <label for="date">Datum</label>
+  <input id="date" name="date" type="date" value="{{ form.date }}">
+  <label for="category">Kategori</label>
+  <select id="category" name="category">
+    <option value="">Välj kategori</option>
+    {% for c in categories %}
+      <option value="{{ c.name }}" {% if form.category == c.name %}selected{% endif %}>{{ c.name }}</option>
+    {% endfor %}
+  </select>
+  <label for="note">Anteckning (valfri)</label>
+  <input id="note" name="note" value="{{ form.note }}" placeholder="ICA">
+  <p><button type="submit">Spara</button> <a href="{{ url_for('transactions') }}">Till transaktionerna</a></p>
+</form>
+{% endblock %}
